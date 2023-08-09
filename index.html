@@ -142,6 +142,52 @@ final class MyTest extends \PHPUnit\Framework\TestCase
 					Ref <a href="https://getrector.com/demo/293784ea-7a08-48fc-bede-6e3e0eba3263">https://getrector.com/demo/293784ea-7a08-48fc-bede-6e3e0eba3263</a>
 				</section>
 
+				<section>
+					<h3>Code quality improvements example: Change floatval() to (float)</h3>
+					<p><strong>Before</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+function run($parameter)
+{
+	echo floatval($parameter);
+}
+						</code>
+					</pre>
+					<p><strong>After</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+function run($parameter)
+{
+	echo (float) $parameter;
+}
+						</code>
+					</pre>
+					Ref <a href="https://getrector.com/demo/46c8a393-e970-4e0d-ac59-fe07d55ee1cf">https://getrector.com/demo/46c8a393-e970-4e0d-ac59-fe07d55ee1cf</a>
+				</section>
+
+				<section>
+					<h3>Type coverages example: Add return type for bool return</h3>
+					<p><strong>Before</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+function run($parameter)
+{
+	return $parameter === 1;
+}
+						</code>
+					</pre>
+					<p><strong>After</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+function run($parameter): bool
+{
+	return $parameter === 1;
+}
+						</code>
+					</pre>
+					Ref <a href="https://getrector.com/demo/720c19a2-81ae-4a90-93fa-a114494227ce">https://getrector.com/demo/720c19a2-81ae-4a90-93fa-a114494227ce</a>
+				</section>
+
 		</div>
 
 		<script src="assets/lib/js/head.min.js"></script>
