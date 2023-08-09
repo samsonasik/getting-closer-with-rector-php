@@ -95,6 +95,53 @@
 
 					</div>
 				</section>
+
+				<section>
+					<h3>PHP upgrades example: change Closure to ArrowFunction for PHP 7.4+</h3>
+					<p><strong>Before</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+function () {
+	return 1;
+};
+						</code>
+					</pre>
+					<p><strong>After</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+fn() => 1;
+						</code>
+					</pre>
+					Ref <a href="https://getrector.com/demo/d7709b87-39d2-4e89-91e3-244ad0139ff5">https://getrector.com/demo/d7709b87-39d2-4e89-91e3-244ad0139ff5</a>
+				</section>
+
+				<section>
+					<h3>Framework Upgrades example: Add void return type to setUp() PHPUnit 8.0+ TestCase</h3>
+					<p><strong>Before</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+final class MyTest extends \PHPUnit\Framework\TestCase
+{
+	public function setUp()
+	{
+	}
+}
+						</code>
+					</pre>
+					<p><strong>After</strong></p>
+					<pre>
+						<code data-trim data-noescape>
+final class MyTest extends \PHPUnit\Framework\TestCase
+{
+	public function setUp(): void
+	{
+	}
+}
+						</code>
+					</pre>
+					Ref <a href="https://getrector.com/demo/293784ea-7a08-48fc-bede-6e3e0eba3263">https://getrector.com/demo/293784ea-7a08-48fc-bede-6e3e0eba3263</a>
+				</section>
+
 		</div>
 
 		<script src="assets/lib/js/head.min.js"></script>
