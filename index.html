@@ -116,15 +116,16 @@ fn() => 1;
 				</section>
 
 				<section>
-					<h3>Framework Upgrades example: Add void return type to setUp() PHPUnit 8.0+ TestCase</h3>
+					<h3>Framework Upgrades example: Change setExpectedException() to expectException() and expectExceptionMessage for PHPUnit 6.0+ TestCase</h3>
 					<p><strong>Before</strong></p>
 					<pre>
 						<code data-trim data-noescape>
 final class MyTest extends \PHPUnit\Framework\TestCase
 {
-	public function setUp()
-	{
-	}
+    public function test()
+    {
+        $this->setExpectedException('InvalidArgumentException', 'some message');
+    }
 }
 						</code>
 					</pre>
@@ -133,13 +134,15 @@ final class MyTest extends \PHPUnit\Framework\TestCase
 						<code data-trim data-noescape>
 final class MyTest extends \PHPUnit\Framework\TestCase
 {
-	public function setUp(): void
-	{
-	}
+    public function test()
+    {
+		$this->expectException('InvalidArgumentException');
+        $this->expectExceptionMessage('some message');
+    }
 }
 						</code>
 					</pre>
-					Ref <a href="https://getrector.com/demo/c5942faa-6a65-40c1-999b-9cf69ace1c29">https://getrector.com/demo/c5942faa-6a65-40c1-999b-9cf69ace1c29</a>
+					Ref <a href="https://getrector.com/demo/26ffe9ca-8ee4-4f0a-a107-774128315061">https://getrector.com/demo/26ffe9ca-8ee4-4f0a-a107-774128315061</a>
 				</section>
 
 				<section>
