@@ -166,29 +166,6 @@ function run($parameter)
 				</section>
 
 				<section>
-					<h3>Type coverages example: Add return type</h3>
-					<p><strong>Before</strong></p>
-					<pre>
-						<code data-trim data-noescape>
-function isEmpty(array $parameter)
-{
-	return $parameter !== [];
-}
-						</code>
-					</pre>
-					<p><strong>After</strong></p>
-					<pre>
-						<code data-trim data-noescape>
-function isEmpty(array $parameter): bool
-{
-	return $parameter !== [];
-}
-						</code>
-					</pre>
-					Ref <a href="https://getrector.com/demo/aa8e075d-b0cf-4f21-ac00-f3e09dd69273">https://getrector.com/demo/aa8e075d-b0cf-4f21-ac00-f3e09dd69273</a>
-				</section>
-
-				<section>
 					<h3>Type coverages example: Add return type for bool return</h3>
 					<p><strong>Before</strong></p>
 					<pre>
