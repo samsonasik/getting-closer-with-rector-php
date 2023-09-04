@@ -269,7 +269,7 @@ function run($parameter): bool
 							<code data-trim data-noescape>
 composer create-project laravel/laravel example-app-laravel
 cd example-app-laravel && git init && git add . && git commit -m 'First commit' -a
-cd composer require --dev rector/rector
+composer require --dev rector/rector
 							</code>
 						</pre>
 					</div>
@@ -295,7 +295,7 @@ No "rector.php" config found. Should we generate it for you? [yes]:
 
 				<section>
 					<div>
-						<h2>The Generated <strong class="rectorphp-color">RectorPHP</strong> Configuration</h2>
+						<h2>Uncomment Generated <label class="slidesm-color">LevelSetList::UP_TO_PHP_81</label> <strong class="rectorphp-color">RectorPHP</strong> Configuration</h2>
 						<pre class="stretch">
 							<code data-trim data-noescape>
 &lt;?php
@@ -321,9 +321,9 @@ return static function (RectorConfig $rectorConfig): void {
 	$rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
 	// define sets of rules
-	//    $rectorConfig->sets([
-	//        LevelSetList::UP_TO_PHP_81
-	//    ]);
+	$rectorConfig->sets([
+	   LevelSetList::UP_TO_PHP_81
+	]);
 };
 							</code>
 						</pre>
@@ -332,23 +332,21 @@ return static function (RectorConfig $rectorConfig): void {
 
 				<section>
 					<div>
-						<h2>Running <strong class="rectorphp-color">RectorPHP</strong></h2>
-						<pre class="stretch">
-							<code data-trim data-noescape>
-➜  example-app-laravel vendor/bin/rector
-47/47 [▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓] 100%
-
-
-[OK] Rector is done!
-							</code>
-						</pre>
+						<h2>Run vendor/bin/rector --dry-run: ensure change valid</h2>
+						<img src="assets/run-up-to-php81-dry-run.png" />
 					</div>
 				</section>
 
 				<section>
 					<div>
-						<h2>Uncomment <label class="slidesm-color">LevelSetList::UP_TO_PHP_81</label> SetList and run vendor/bin/rector</h2>
+						<h2>Run vendor/bin/rector: apply change</h2>
 						<img src="assets/run-up-to-php81.png" />
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h2>Commit, add more set lists, verify, repeat!</h2>
 					</div>
 				</section>
 
