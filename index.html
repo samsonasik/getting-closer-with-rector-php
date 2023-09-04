@@ -292,6 +292,44 @@ No "rector.php" config found. Should we generate it for you? [yes]:
 					</div>
 				</section>
 
+
+				<section>
+					<div>
+						<h2>The Generated <strong class="rectorphp-color">RectorPHP</strong> Configuration</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape>
+&lt;?php
+
+declare(strict_types=1);
+
+use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
+use Rector\Config\RectorConfig;
+use Rector\Set\ValueObject\LevelSetList;
+
+return static function (RectorConfig $rectorConfig): void {
+	$rectorConfig->paths([
+		__DIR__ . '/app',
+		__DIR__ . '/bootstrap',
+		__DIR__ . '/config',
+		__DIR__ . '/public',
+		__DIR__ . '/resources',
+		__DIR__ . '/routes',
+		__DIR__ . '/tests',
+	]);
+
+	// register a single rule
+	$rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
+
+	// define sets of rules
+	//    $rectorConfig->sets([
+	//        LevelSetList::UP_TO_PHP_81
+	//    ]);
+};
+							</code>
+						</pre>
+					</div>
+				</section>
+
 			</div>
 		</div>
 
