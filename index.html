@@ -254,7 +254,7 @@ composer require --dev rector/rector
 					<div>
 						<pre>
 							<code data-trim data-noescape>
-➜  example-app-laravel vendor/bin/rector
+➜  vendor/bin/rector
 
 No "rector.php" config found. Should we generate it for you? [yes]:
 > yes
@@ -266,10 +266,9 @@ No "rector.php" config found. Should we generate it for you? [yes]:
 					</div>
 				</section>
 
-
 				<section>
 					<div>
-						<h2>Uncomment Generated <label class="slidesm-color">LevelSetList::UP_TO_PHP_81</label> <strong class="rectorphp-color">RectorPHP</strong> Configuration</h2>
+						<h2>Get Generated rector.php config</h2>
 						<pre class="stretch">
 							<code data-trim data-noescape>
 &lt;?php
@@ -295,10 +294,53 @@ return static function (RectorConfig $rectorConfig): void {
 	$rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
 	// define sets of rules
-	$rectorConfig->sets([
-	   LevelSetList::UP_TO_PHP_81
-	]);
+	//    $rectorConfig->sets([
+	//        LevelSetList::UP_TO_PHP_81
+	//    ]);
 };
+							</code>
+						</pre>
+					</div>
+				</section>
+
+
+				<section>
+					<div>
+						<h2>Register Laravel Bootstrap</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape>
+// rector.php
+$rectorConfig->bootstrapFiles([__DIR__ . '/bootstrap/app.php']);
+
+							</code>
+						</pre>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h2>Uncomment Generated <label class="slidesm-color">LevelSetList::UP_TO_PHP_81</label> <strong class="rectorphp-color">RectorPHP</strong> Configuration</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape>
+// rector.php
+$rectorConfig->sets([
+	LevelSetList::UP_TO_PHP_81
+]);
+							</code>
+						</pre>
+					</div>
+				</section>
+
+				<section>
+					<div>
+						<h2>Skip cache path</h2>
+						<pre class="stretch">
+							<code data-trim data-noescape>
+// rector.php
+$rectorConfig->skip([
+	__DIR__ . '/bootstrap/cache',
+]);
+
 							</code>
 						</pre>
 					</div>
